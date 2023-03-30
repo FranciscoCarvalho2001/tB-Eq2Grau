@@ -1,6 +1,19 @@
 ﻿@{
     // este pedaço de código está escrito em C#
     ViewData["Title"] = "Home Page";
+
+    //var auxiliar
+    string resposta = "";
+
+    //recuperar os dados enviados pelo controller
+    if (string.IsNullOrEmpty(ViewBag.X1))
+    {
+        resposta ="Vazio";
+    }
+    else
+    {
+        resposta = "as raízes são: x1 = " + ViewBag.X1 + " e x2 = " + ViewBag.X2;
+    }
 }
 
 <div class="text-center">
@@ -13,10 +26,15 @@
 <form>
     <div>
         <p>escreva os parâmetros da equação:</p>
-        A=<input type="text" /> <br /></br>
-        B=<input type="text" /> <br /></br>
-        C=<input type="text" /> <br /></br>
+        A=<input type="text" name="A" /> <br />
+        B=<input type="text" name="B" /> <br />
+        C=<input type="text" name="C" /> <br />
 
         <input type="submit" value="Calcular"/>
     </div>
 </form>
+
+<br />
+<h4>
+    @resposta
+</h4>
